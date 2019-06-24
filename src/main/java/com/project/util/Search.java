@@ -43,7 +43,7 @@ public class Search {
         InputStream in = null;
         try {
 
-                in = new FileInputStream("C:\\project\\project\\src\\main\\resources\\setup.properties");
+                in = new FileInputStream(new File("").getAbsolutePath()+ "/src/main/resources/setup.properties");
 
             properties = new Properties();
             properties.load(in);

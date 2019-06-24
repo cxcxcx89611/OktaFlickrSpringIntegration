@@ -48,11 +48,11 @@
         <!-- #连接的超时时间，默认为半小时。 -->
         <property name="minEvictableIdleTimeMillis" value="${db.minEvictableIdleTimeMillis}"/>
 
-        <!--# 失效检查线程运行时间间隔，要小于MySQL默认-->
+        <!--# invalid connection interval-->
         <property name="timeBetweenEvictionRunsMillis" value="40000"/>
-        <!--# 检查连接是否有效-->
+        <!--# validate connection-->
         <property name="testWhileIdle" value="true"/>
-        <!--# 检查连接有效性的SQL语句-->
+        <!--# validate query-->
         <property name="validationQuery" value="SELECT 1 FROM dual"/>
     </bean>
 
@@ -76,9 +76,9 @@
         <property name="basePackage" value="com.project.dao"/>
     </bean>
 
-    <!-- 使用@Transactional进行声明式事务管理需要声明下面这行 -->
+    <!-- @Transaction to  manage transaction -->
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
-    <!-- 事务管理 -->
+
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
         <property name="rollbackOnCommitFailure" value="true"/>
