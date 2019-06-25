@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/saml*").permitAll().mvcMatchers("/").authenticated().and()
                 .apply(saml()).serviceProvider()
                 .keyStore().storeFilePath(this.keyStoreFilePath).password(this.password).keyname(this.keyAlias).keyPassword(this.password).and()
-                .protocol("https").hostname(String.format("%s:%s", "http://35.188.162.0:8080", this.port)).basePath("/").and()
+                .protocol("https").hostname(String.format("%s:%s", "localhost", this.port)).basePath("/").and()
                 .identityProvider().metadataFilePath(this.metadataUrl);
     }
 }
