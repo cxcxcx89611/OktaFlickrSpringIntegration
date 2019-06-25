@@ -40,7 +40,7 @@ public class IndexController {
         user.setName(n.getValue());
         userMapper.insert(user);
         try {
-            response.sendRedirect("http://localhost:8080/#/islogin");
+            response.sendRedirect("http://35.188.162.0:8080/#/islogin");
         } catch (IOException e) {
             e.printStackTrace();
         }
