@@ -1,5 +1,9 @@
 package com.project.common;
 
+/* created by Izzy Chen
+*  response code
+*
+*/
 public enum ResponseCode {
 
     SUCCESS(0,"SUCCESS"),

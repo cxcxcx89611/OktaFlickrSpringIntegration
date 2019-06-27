@@ -17,8 +17,13 @@ import java.io.IOException;
 import java.security.Principal;
 import java.util.ArrayList;
 
+/*
+*
+* Controller for Flickr graph request
+* */
 @RestController
 public class IndexController {
+
     @Autowired
     private UserMapper userMapper;
     private static Search searchs;

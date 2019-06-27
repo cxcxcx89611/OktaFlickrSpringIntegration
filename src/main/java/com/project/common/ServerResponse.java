@@ -5,6 +5,9 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 import java.io.Serializable;
 
+/*
+* Payload definition
+* */
 @JsonSerialize(include =  JsonSerialize.Inclusion.NON_NULL)
 public class ServerResponse<T> implements Serializable {
 

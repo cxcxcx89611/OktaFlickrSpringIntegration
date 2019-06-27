@@ -21,30 +21,21 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Demonstration of how to search.
+ * read setup.properties for flickr initialization
  */
 @Service
 public class Search {
-    static String apiKey;
-
-    static String sharedSecret;
 
     Flickr f;
-
-    REST rest;
-
-    RequestContext requestContext;
 
     Properties properties;
 
     public Search() throws IOException {
-        String setupPropertiesPath = System.getenv("SETUP_PROPERTIES_PATH");
-
+        //ready properties file, get api get and secret for OKTA SAML authentication
         InputStream in = null;
+
         try {
-
                 in = new FileInputStream(new File("").getAbsolutePath()+ "/src/main/resources/setup.properties");
-
             properties = new Properties();
             properties.load(in);
         } finally {
@@ -62,14 +53,15 @@ public class Search {
         Flickr.debugStream = false;
     }
 
+    //populate flickr request param for content keyword searching
     public ArrayList<String> search(String text) throws FlickrException {
         PhotosInterface photos = f.getPhotosInterface();
         SearchParameters params = new SearchParameters();
         params.setMedia("photos"); // One of "photos", "videos" or "all"
         params.setExtras(Stream.of("media").collect(Collectors.toSet()));
         params.setText(text);
+        //search top 50 graphs
         PhotoList<Photo> results = photos.search(params, 50, 0);
-
         ArrayList<String> ps = new ArrayList<>();
         results.forEach(p ->
         {

@@ -1,5 +1,9 @@
 package com.project.pojo;
 
+/*
+Define user model
+*
+*/
 public class User {
     private Integer id;
 
